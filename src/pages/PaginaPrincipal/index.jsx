@@ -17,7 +17,6 @@ function PaginaPrincipal() {
 
   return (
     <Container>
-      <Button onClick={() => addModal(data)}>Abrir modal</Button>
       <h1>Lorem Ipsum</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
          Nunc congue ligula nec nibh aliquet, in dapibus odio egestas. Suspendisse non sollicitudin arcu.
@@ -77,6 +76,7 @@ function PaginaPrincipal() {
         Mauris eu lacus eu dolor porta cursus non eu eros.
         Fusce feugiat augue non molestie scelerisque.
       </p>
+      <Button onClick={() => addModal(data)}>Abrir modal</Button>
     </Container>
   )
 }
