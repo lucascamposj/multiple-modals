@@ -29,7 +29,9 @@ const ModalProvider = ({ children }) => {
   return (
     <ModalContext.Provider value={{ addModal, removeModal }}>
       {children}
-      <ModalContainer messages={messages} />
+      {
+        (messages.length > 0) && <ModalContainer messages={messages} />
+      }
     </ModalContext.Provider>
   );
 };

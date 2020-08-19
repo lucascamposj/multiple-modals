@@ -1,10 +1,16 @@
 import React from 'react';
 
-import { Container } from './styles';
+import { Container, CloseButton, NewModalButton } from './styles';
 import { useModal } from '../../../context/modal';
 
 const Modal = ({message, style, index }) => {
-  const { removeModal } = useModal();
+  const { removeModal, addModal } = useModal();
+
+  const data = { 
+    type: 'success', 
+    title: 'Modal', 
+    description: 'Descrição do modal...'
+  }
 
   return (
     <Container
@@ -17,9 +23,12 @@ const Modal = ({message, style, index }) => {
         <strong>Número:{message.id}</strong>
         {message.description && <p>{message.description}</p>}
       </div>
-      <button onClick={() => removeModal(message.id)} type="button">
+      <NewModalButton onClick={() => addModal(data)} type="button">
+        Novo Modal
+      </NewModalButton>
+      <CloseButton onClick={() => removeModal(message.id)} type="CloseButton">
         Fechar
-      </button>
+      </CloseButton>
     </Container>
   );
 };

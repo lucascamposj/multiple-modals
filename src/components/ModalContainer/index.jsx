@@ -1,18 +1,20 @@
 import React from 'react';
 
-import { Container } from './styles';
+import { Container,BackgroundContainer } from './styles';
 import Modal from './Modal';
 
 const ModalContainer = ({ messages }) => {
 
   return (
-    <Container>
+    <BackgroundContainer>
+      <Container>
       {messages.map((item, index) => {
         return(
           <Modal key={item.id} message={item} index={index}/>
         );
       })}
-    </Container>
+      </Container>
+    </BackgroundContainer>
   );
 };
 

@@ -12,7 +12,7 @@ function PaginaPrincipal() {
   const data = { 
     type: 'success', 
     title: 'Modal', 
-    description: 'descrição'
+    description: 'Descrição do modal...'
   }
 
   return (
@@ -76,14 +76,6 @@ function PaginaPrincipal() {
         Vivamus at ante vitae eros aliquam molestie in quis odio.
         Mauris eu lacus eu dolor porta cursus non eu eros.
         Fusce feugiat augue non molestie scelerisque.
-      </p>
-      <p>Phasellus elementum lacus eu nisi porta, quis placerat nisl condimentum.
-        Aliquam eleifend libero vel velit iaculis auctor.
-        Fusce at purus vestibulum, ultrices ligula nec, molestie justo.
-        Quisque at malesuada sem.
-        Curabitur rhoncus vestibulum lorem sodales bibendum.
-        Phasellus pharetra semper facilisis.
-        Fusce auctor mauris nec est volutpat, nec pharetra arcu suscipit.
       </p>
     </Container>
   )
