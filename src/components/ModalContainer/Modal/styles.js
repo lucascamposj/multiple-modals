@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
+import {shade} from 'polished';
 
 const load = keyframes`
   from{
@@ -79,6 +80,11 @@ export const NewModalButton = styled.button`
   background: transparent;
   color: inherit;
   margin-top: 10px;
+  transition: color 0.2s;
+
+  &:hover {
+    color: ${shade(0.2, '#0E1C1E')};
+  }
 `;
 
 export const CloseButton = styled.button`
@@ -89,4 +95,8 @@ export const CloseButton = styled.button`
   border: 0;
   background: transparent;
   color: inherit;
+  transition: color 0.2s;
+  &:hover {
+    color: ${shade(0.2, '#0E1C1E')};
+  }
 `;
