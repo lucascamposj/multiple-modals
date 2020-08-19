@@ -1,29 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 
 import { Container, CloseButton, NewModalButton } from './styles';
 import { useModal } from '../../../context/modal';
 
+const data = { 
+  type: 'success', 
+  title: 'Modal', 
+  description: 'Descrição do modal...'
+};
+
 const Modal = ({message, style, index }) => {
   const { removeModal, addModal } = useModal();
-  const [ modelClosed, setModelClosed ] = useState(false);
- 
-  const data = { 
-    type: 'success', 
-    title: 'Modal', 
-    description: 'Descrição do modal...'
-  }
+  const [ modalClosed, setModalClosed ] = useState(false);
+
+  const onAnimationEndHandler = useMemo(() => {
+    if(modalClosed){
+      return () => removeModal(message.id);
+    }
+  }, [modalClosed, removeModal, message.id])
 
   return (
     <Container
       type={message.type}
       hasDescription={Number(!!message.description)}
       style={style}
-      onAnimationEnd={() => {
-        if(modelClosed){
-          removeModal(message.id)
-        }
-      }}
-      close={modelClosed}
+      onAnimationEnd={onAnimationEndHandler}
+      close={modalClosed}
     >
       <div>
         <h1>{message.title} {index}</h1>
@@ -34,7 +36,7 @@ const Modal = ({message, style, index }) => {
         Novo Modal
       </NewModalButton>
       <CloseButton 
-        onClick={() => setModelClosed(true)} 
+        onClick={() => setModalClosed(true)} 
         type="CloseButton"
       >
         Fechar

@@ -3,7 +3,7 @@ import styled, { css, keyframes } from 'styled-components';
 const load = keyframes`
   from{
     opacity: 0;
-    transform: translateY(-100px) scale(1.2);
+    transform: translateY(-50px) scale(1.1);
   }
   to{
     opacity: 1;
@@ -18,7 +18,7 @@ const close = keyframes`
   }
   to{
     opacity: 0;
-    transform: translateY(-100px) scale(1.2);
+    transform: translateY(-50px) scale(1.1);
   }
 `;
 
@@ -38,12 +38,10 @@ export const Container = styled.div`
 
   ${props => !props.close ?
     css`
-      animation-delay: 0.2s;
-      animation: ${load} 0.5s;
+      animation: ${load} 0.2s;
     ` :
     css`
-      animation-delay: 0.2s;
-      animation: ${close} 0.5s;
+      animation: ${close} 0.2s;
     `
   }
 

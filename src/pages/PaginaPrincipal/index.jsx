@@ -6,14 +6,14 @@ import {
   Button
 } from './styles';
 
+const data = { 
+  type: 'success', 
+  title: 'Modal', 
+  description: 'Descrição do modal...'
+}
+
 function PaginaPrincipal() {
   const {addModal} = useModal();
-
-  const data = { 
-    type: 'success', 
-    title: 'Modal', 
-    description: 'Descrição do modal...'
-  }
 
   return (
     <Container>
