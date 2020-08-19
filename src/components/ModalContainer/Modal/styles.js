@@ -3,11 +3,22 @@ import styled, { css, keyframes } from 'styled-components';
 const load = keyframes`
   from{
     opacity: 0;
-    transform: translateY(-50px);
+    transform: translateY(-100px) scale(1.2);
   }
   to{
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+  }
+`;
+
+const close = keyframes` 
+  from{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to{
+    opacity: 0;
+    transform: translateY(-100px) scale(1.2);
   }
 `;
 
@@ -24,8 +35,16 @@ export const Container = styled.div`
   background: #e6fffa;
   color: #2e656a;
 
-  animation-delay: 0.2s;
-  animation: ${load} 0.5s;
+  ${props => !props.close ?
+    css`
+      animation-delay: 0.2s;
+      animation: ${load} 0.5s;
+    ` :
+    css`
+      animation-delay: 0.2s;
+      animation: ${close} 0.5s;
+    `
+  }
 
   > svg {
     margin: 4px 12px 0 0;

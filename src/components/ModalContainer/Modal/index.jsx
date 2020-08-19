@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Container, CloseButton, NewModalButton } from './styles';
 import { useModal } from '../../../context/modal';
 
 const Modal = ({message, style, index }) => {
   const { removeModal, addModal } = useModal();
-
+  const [ modelClosed, setModelClosed ] = useState(false);
+ 
   const data = { 
     type: 'success', 
     title: 'Modal', 
@@ -17,6 +18,12 @@ const Modal = ({message, style, index }) => {
       type={message.type}
       hasDescription={Number(!!message.description)}
       style={style}
+      onAnimationEnd={() => {
+        if(modelClosed){
+          removeModal(message.id)
+        }
+      }}
+      close={modelClosed}
     >
       <div>
         <h1>{message.title} {index}</h1>
@@ -26,7 +33,10 @@ const Modal = ({message, style, index }) => {
       <NewModalButton onClick={() => addModal(data)} type="button">
         Novo Modal
       </NewModalButton>
-      <CloseButton onClick={() => removeModal(message.id)} type="CloseButton">
+      <CloseButton 
+        onClick={() => setModelClosed(true)} 
+        type="CloseButton"
+      >
         Fechar
       </CloseButton>
     </Container>
