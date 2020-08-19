@@ -10,7 +10,7 @@ const load = keyframes`
 `;
 
 export const BackgroundContainer = styled.div`
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   top: 0;
@@ -25,9 +25,13 @@ export const BackgroundContainer = styled.div`
 export const Container = styled.div`
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
+
+  display: -webkit-flex;
   justify-content: center;
+  -webkit-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+
   background: transparent;
 `;
 

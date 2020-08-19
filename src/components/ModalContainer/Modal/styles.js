@@ -24,9 +24,10 @@ const close = keyframes`
 
 export const Container = styled.div`
   position: absolute;
-  width: 400px;
+  max-width: 400px;
   height: 170px;
   padding: 16px 30px 16px 16px;
+  margin: 0 10px;
   border-radius: 10px;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
   display: flex;
